@@ -1,0 +1,25 @@
+name: xtream-ui
+services:
+  - name: app
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - port: 80
+        http:
+          paths: ["/"]
+      - port: 25462
+        http:
+          paths: ["/"]
+      - port: 8000
+        http:
+          paths: ["/admin"]
+    env:
+      - name: SERVER_IP
+        value: "0.0.0.0"
+      - name: ADMIN_USER
+        value: "admin"
+      - name: ADMIN_PASS
+        value: "admin"
+    volumes:
+      - name: xtream-data
+        mount_path: /home/xtreamcodes/iptv_xtream_codes
