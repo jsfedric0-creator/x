@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  xtream-ui:
+    build: .
+    container_name: xtream-ui
+    ports:
+      - "80:80"
+      - "25462:25462"
+      - "8000:8000"
+    volumes:
+      - ./xtream-data:/home/xtreamcodes/iptv_xtream_codes
+    restart: unless-stopped
